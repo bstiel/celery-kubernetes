@@ -1,0 +1,10 @@
+# kubectl apply -f rabbitmq-pod.yaml
+# kubectl delete -f rabbitmq-pod.yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: rabbitmq-pod
+spec:
+  containers:
+  - name: rabbitmq-container
+    image: rabbitmq:3.7.8

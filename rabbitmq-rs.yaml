@@ -1,0 +1,22 @@
+# kubectl apply -f rabbitmq-rs.yaml
+# kubectl delete -f rabbitmq-rs.yaml
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: rabbitmq-rs
+  labels:
+    app: rabbitmq-rs
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: rabbitmq-pod
+  template:
+    metadata:
+      labels:
+        name: rabbitmq-pod
+    spec:
+      restartPolicy: Always
+      containers:
+      - name: rabbitmq-container
+        image: rabbitmq:3.7.8
